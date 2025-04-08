@@ -9,5 +9,13 @@
 	"author": "",
 	"license": "ISC",
 	"type": "module",
-	"description": "A CLI app for managing daily tasks"
+	"description": "A CLI app for managing daily tasks",
+	"dependencies": {
+		"@inquirer/prompts": "^7.4.1",
+		"boxen": "^8.0.1",
+		"chalk": "^5.4.1",
+		"commander": "^13.1.0",
+		"inquirer": "^12.5.2",
+		"ora": "^8.2.0"
+	}
 }
