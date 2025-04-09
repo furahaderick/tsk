@@ -1,3 +1,3 @@
-export const updateTask = () => {
+export const updateTask = async () => {
 	console.log("Updated task");
 };

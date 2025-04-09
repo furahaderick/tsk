@@ -1,3 +1,3 @@
-export const deleteTask = () => {
+export const deleteTask = async () => {
 	console.log("Deleted task");
 };
