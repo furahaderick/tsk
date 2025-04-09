@@ -12,8 +12,14 @@ const taskSchema = mongoose.Schema(
 			required: true,
 			trim: true,
 		},
+		descriptor: {
+			type: String,
+			required: true,
+			trim: true,
+			unique: true,
+		},
 	},
-	{ timestamps: true }
+	// { timestamps: true }
 );
 
 const Task = mongoose.model("Task", taskSchema);
