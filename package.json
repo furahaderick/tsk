@@ -15,11 +15,9 @@
 	"description": "A CLI app for managing daily tasks",
 	"dependencies": {
 		"@inquirer/prompts": "^7.4.1",
-		"boxen": "^8.0.1",
 		"chalk": "^5.4.1",
 		"commander": "^13.1.0",
 		"dotenv": "^16.4.7",
-		"figlet": "^1.8.0",
 		"mongoose": "^8.13.2",
 		"ora": "^8.2.0"
 	}
