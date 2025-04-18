@@ -1,6 +1,6 @@
-import { input, select } from "@inquirer/prompts";
-import chalk from "chalk";
 import ora from "ora";
+import chalk from "chalk";
+import { input } from "@inquirer/prompts";
 
 import Task from "../models/task.model.js";
 import { startDB, stopDB } from "../config/db.js";
