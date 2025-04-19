@@ -7,11 +7,6 @@ import { startDB, stopDB } from "../config/db.js";
 
 class TaskUpdateError extends Error {}
 
-export const getUpdatingDesriptor = async () => {
-	const descriptor = await input({ message: "Enter the task descriptor: " });
-	return descriptor;
-};
-
 export const updateTask = async (descriptor) => {
 	try {
 		await startDB();

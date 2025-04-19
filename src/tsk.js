@@ -11,7 +11,8 @@ import {
 import { fetchTasks, getFetchingDescriptor } from "./commands/getTasks.js";
 import { formatTasksOutput } from "./utils/formatTasksOutput.js";
 
-import { getUpdatingDesriptor, updateTask } from "./commands/updateTask.js";
+import { promptDescriptor } from "./utils/promptDescriptor.js";
+import { updateTask } from "./commands/updateTask.js";
 import { deleteTask } from "./commands/deleteTask.js";
 
 program
@@ -61,7 +62,7 @@ program.action(async (options) => {
 				break;
 
 			case "update":
-				descriptor = await getUpdatingDesriptor();
+				descriptor = await promptDescriptor();
 				await updateTask(descriptor);
 				break;
 			case "delete":
