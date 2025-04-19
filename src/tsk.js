@@ -11,7 +11,7 @@ import {
 import { fetchTasks, getFetchingDescriptor } from "./commands/getTasks.js";
 import { formatTasksOutput } from "./utils/formatTasksOutput.js";
 
-import { updateTask } from "./commands/updateTask.js";
+import { getUpdatingDesriptor, updateTask } from "./commands/updateTask.js";
 import { deleteTask } from "./commands/deleteTask.js";
 
 program
@@ -23,7 +23,7 @@ program
 // Interactive mode
 program.action(async (options) => {
 	if (options.interactive) {
-		// TODO: Updating, Deleting tasks
+		// TODO: Deleting, Checking tasks
 		const command = await select({
 			message: "What are you about to do?",
 			choices: [
@@ -32,20 +32,22 @@ program.action(async (options) => {
 					value: "add",
 				},
 				{
-					name: "Get tasks",
+					name: "Read your tasks",
 					value: "get",
 				},
 				{
-					name: "Update task",
+					name: "Update a task",
 					value: "update",
 				},
 				{
-					name: "Delete task",
+					name: "Delete a task",
 					value: "delete",
 				},
 			],
 		});
-        
+
+		let descriptor;
+
 		switch (command) {
 			case "add":
 				const tasksArray = await parseAddingArgsInteractively();
@@ -53,13 +55,14 @@ program.action(async (options) => {
 				break;
 
 			case "get":
-				const descriptor = await getFetchingDescriptor();
+				descriptor = await getFetchingDescriptor();
 				const taskData = await fetchTasks(descriptor);
 				formatTasksOutput(taskData, descriptor);
 				break;
 
 			case "update":
-				await updateTask();
+				descriptor = await getUpdatingDesriptor();
+				await updateTask(descriptor);
 				break;
 			case "delete":
 				await deleteTask();
@@ -80,10 +83,17 @@ program
 
 program
 	.command("get [descriptor]")
-	.description("Retrieves tasks")
+	.description("Retrieves all tasks, or a single task by descriptor")
 	.action(async (descriptor) => {
 		const taskData = await fetchTasks(descriptor);
 		formatTasksOutput(taskData, descriptor);
+	});
+
+program
+	.command("update <descriptor>")
+	.description("Updates a task by descriptor")
+	.action(async (descriptor) => {
+		await updateTask(descriptor);
 	});
 
 program.parse(process.argv);
