@@ -66,7 +66,8 @@ program.action(async (options) => {
 				await updateTask(descriptor);
 				break;
 			case "delete":
-				await deleteTask();
+				descriptor = await promptDescriptor();
+				await deleteTask(descriptor);
 				break;
 			default:
 				break;
@@ -95,6 +96,13 @@ program
 	.description("Updates a task by descriptor")
 	.action(async (descriptor) => {
 		await updateTask(descriptor);
+	});
+
+program
+	.command("delete <descriptor>")
+	.description("Deletes a task by descriptor")
+	.action(async (descriptor) => {
+		await deleteTask(descriptor);
 	});
 
 program.parse(process.argv);
