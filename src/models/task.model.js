@@ -18,7 +18,11 @@ const taskSchema = mongoose.Schema(
 			trim: true,
 			unique: true,
 		},
-	},
+		completed: {
+			type: Boolean,
+			default: false,
+		},
+	}
 	// { timestamps: true }
 );
 

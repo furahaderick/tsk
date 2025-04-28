@@ -45,7 +45,12 @@ export const parseAddingArgsInteractively = async () => {
 					chalk.redBright(`Found duplicate descriptor: '${descriptor}'`)
 				);
 			} else {
-				taskInputs.push({ title, description, descriptor });
+				taskInputs.push({
+					title,
+					description,
+					descriptor,
+					completed: false,
+				});
 			}
 		} while (loop);
 	} catch (err) {
