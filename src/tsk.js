@@ -92,6 +92,8 @@ program.action(async (options) => {
 			default:
 				break;
 		}
+	} else {
+		console.log("Run 'tsk -i' to run in interactive mode");
 	}
 });
 
