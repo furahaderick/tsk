@@ -1,11 +1,14 @@
 import chalk from "chalk";
 
 export const formatTasksOutput = (taskData, descriptor = undefined) => {
+	let taskStatus;
+
 	if (taskData instanceof Array) {
 		if (taskData.length === 0) {
 			console.log(chalk.blueBright("You do not have any tasks yet."));
 		} else {
 			taskData.map((task, i) => {
+				taskStatus = task.completed ? "true" : "false";
 				console.log(
 					chalk.blueBright(`\n${i + 1}.\ttitle: `) +
 						task.title +
@@ -15,6 +18,9 @@ export const formatTasksOutput = (taskData, descriptor = undefined) => {
 						"\n" +
 						chalk.blueBright("  \tdescriptor: ") +
 						task.descriptor +
+						"\n" +
+						chalk.blueBright("\tcompleted: ") +
+						taskStatus +
 						"\n"
 				);
 			});
@@ -27,6 +33,7 @@ export const formatTasksOutput = (taskData, descriptor = undefined) => {
 				)
 			);
 		} else {
+			taskStatus = taskData.completed ? "true" : "false";
 			console.log(
 				chalk.blueBright("\n\ttitle: ") +
 					taskData.title +
@@ -36,6 +43,9 @@ export const formatTasksOutput = (taskData, descriptor = undefined) => {
 					"\n" +
 					chalk.blueBright("\tdescriptor: ") +
 					taskData.descriptor +
+					"\n" +
+					chalk.blueBright("\tcompleted: ") +
+					taskStatus +
 					"\n"
 			);
 		}
