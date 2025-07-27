@@ -1,3 +1,4 @@
+
 ---
 
 # 📝 tsk — A Simple CLI Task Manager
@@ -8,10 +9,10 @@
 
 ## ✨ Features
 
--  📋 Add, read, update, check, uncheck, and delete tasks
--  💬 Fully interactive prompt-based workflow with `-i` flag
--  🧠 Simple command-based interface for scripting and automation
--  🧹 Clean and readable CLI output
+* 📋 Add, read, update, check, uncheck, and delete tasks
+* 💬 Fully interactive prompt-based workflow with `-i` flag
+* 🧠 Simple command-based interface for scripting and automation
+* 🧹 Clean and readable CLI output
 
 ---
 
@@ -42,10 +43,10 @@ tsk -i
 
 You'll be prompted to choose from actions like:
 
--  Add a task
--  Read your tasks
--  Check/uncheck tasks
--  Update or delete a task
+* Add a task
+* Read your tasks
+* Check/uncheck tasks
+* Update or delete a task
 
 ### Command Mode
 
@@ -116,8 +117,8 @@ tsk/
 
 ## 📦 Dependencies
 
--  [`commander`](https://www.npmjs.com/package/commander) — CLI argument parser
--  [`@inquirer/prompts`](https://www.npmjs.com/package/@inquirer/prompts) — Interactive command-line prompts
+* [`commander`](https://www.npmjs.com/package/commander) — CLI argument parser
+* [`@inquirer/prompts`](https://www.npmjs.com/package/@inquirer/prompts) — Interactive command-line prompts
 
 Install them with:
 
